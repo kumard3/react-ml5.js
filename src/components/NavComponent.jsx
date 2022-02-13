@@ -1,7 +1,6 @@
 import React, { useRef, useState } from "react";
-import  {Link}  from "react-router-dom";
+import { Link } from "react-router-dom";
 import useOnClickOutside from "./useOnClickOutside";
-
 
 const navData = [
   {
@@ -26,12 +25,8 @@ export default function NavComponent() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 ">
           <div className="flex justify-between items-center   py-6 sm:justify-between sm:space-x-10">
             <div className="flex justify-start lg:w-0 lg:flex-1">
-              {/* <li className={router.pathname == "#hero" ? "active" : "koko"}>
-              <Link href="#hero">home</Link>
-            </li> */}
               <Link to="/">
-                <h1>LOGO</h1>
-                {/* <span className="text-4xl font-bold">logo</span> */}
+                <h1>LOGO</h1>{" "}
               </Link>
             </div>
             <div className="-mr-2 -my-2 sm:hidden">
