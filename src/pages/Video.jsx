@@ -12,8 +12,18 @@ export default function VideoClassifier() {
 
     function modelReady() {
       console.log("Model is ready!!!");
+      console.log(mobilenet.predict(video, gotResults), "result");
+      mobilenet.predict(video, gotResults);
     }
 
+    function gotResults(error, results) {
+      if (error) {
+        console.error(error);
+      } else {
+        console.log(results);
+        setModelData(results);
+      }
+    }
     p.setup = () => {
       p.createCanvas(340, 380);
       video = p.createCapture(p.VIDEO);
@@ -37,6 +47,20 @@ export default function VideoClassifier() {
   return (
     <div className="App">
       <div ref={app} />
+      {modeldata?.length >= 2 ? (
+        <>
+          {modeldata?.map((item, index) => {
+            return (
+              <div key={index}>
+                <h2>{item.label}</h2>
+                <h2>{item.confidence}</h2>
+              </div>
+            );
+          })}
+        </>
+      ) : (
+        ""
+      )}
     </div>
   );
 }
