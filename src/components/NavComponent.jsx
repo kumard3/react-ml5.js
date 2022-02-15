@@ -14,6 +14,9 @@ const navData = [
   {
     name: "Image",
     href: "/image",
+  },  {
+    name: "ObjectDetection",
+    href: "/object",
   },
 ];
 
