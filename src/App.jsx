@@ -3,6 +3,7 @@ import { Routes, Route, BrowserRouter } from "react-router-dom";
 import ImageClassifier from "./pages/Image";
 import VideoClassifier from "./pages/Video";
 import NavComponent from "./components/NavComponent";
+import ObjectDetection from "./pages/ObjectDetection";
 
 export const HomePage = () => {
   return (
@@ -21,6 +22,7 @@ export default function App() {
           <Route path="/" element={<HomePage />} />
           <Route path="/image" element={<ImageClassifier />} />
           <Route path="/video" element={<VideoClassifier />} />
+          <Route path="/object" element={<ObjectDetection />} />
         </Routes>
       </>
     </div>
