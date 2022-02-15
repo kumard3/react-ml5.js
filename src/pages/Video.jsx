@@ -12,7 +12,6 @@ export default function VideoClassifier() {
 
     function modelReady() {
       console.log("Model is ready!!!");
-      console.log(mobilenet.predict(video, gotResults), "result");
       mobilenet.predict(video, gotResults);
     }
 
@@ -20,8 +19,8 @@ export default function VideoClassifier() {
       if (error) {
         console.error(error);
       } else {
-        console.log(results);
         setModelData(results);
+        mobilenet.predict(video, gotResults);
       }
     }
     p.setup = () => {
@@ -42,7 +41,6 @@ export default function VideoClassifier() {
       newp5.remove();
     };
   }, []);
-  console.log(modeldata);
 
   return (
     <div className="App">
