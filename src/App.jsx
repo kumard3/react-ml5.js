@@ -7,6 +7,7 @@ import ObjectDetection from "./pages/ObjectDetection";
 import FeatureExtractor from "./pages/FeatureExtractor";
 import Card from "./components/Card";
 import { Data } from "./data";
+import KNNClassification from "./pages/KNNClassification";
 
 export const HomePage = () => {
   return (
@@ -38,6 +39,7 @@ export default function App() {
           <Route path="/video" element={<VideoClassifier />} />
           <Route path="/object" element={<ObjectDetection />} />
           <Route path="/feature" element={<FeatureExtractor />} />
+          <Route path="/knn" element={<KNNClassification />} />
         </Routes>
       </>
     </div>

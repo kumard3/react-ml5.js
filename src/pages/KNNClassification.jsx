@@ -2,19 +2,17 @@ import { useState, useEffect, useRef } from "react";
 import ml5 from "ml5";
 import p5 from "p5";
 
-export default function FeatureExtractor() {
+export default function KNNClassification() {
   const app = useRef();
   const [modeldata, setModelData] = useState([]);
-  let [video, setvideo] = useState(); 
+  let [video, setvideo] = useState();
 
+  let mobilenet;
+  console.log(mobilenet);
   const sketch = (p) => {
-    let mobilenet;
-
     function modelReady() {
       console.log("Model is ready!!!");
-      // mobilenet.predict(video, gotResults);
     }
-
 
     p.setup = () => {
       p.createCanvas(600, 500);
@@ -25,6 +23,12 @@ export default function FeatureExtractor() {
     };
     p.draw = () => {
       p.image(video, 0, 0);
+    };
+
+    p.mousePressed = () => {
+      console.log("first");
+      const logits = mobilenet.infer(video);
+      console.log(logits);
     };
   };
   useEffect(() => {
@@ -39,19 +43,19 @@ export default function FeatureExtractor() {
     <div className="flex justify-center items-center">
       <div ref={app} />
       {/* {modeldata?.length >= 2 ? (
-        <>
-          {modeldata?.map((item, index) => {
-            return (
-              <div key={index}>
-                <h2>{item.label}</h2>
-                <h2>{item.confidence}</h2>
-              </div>
-            );
-          })}
-        </>
-      ) : (
-        ""
-      )} */}
+            <>
+              {modeldata?.map((item, index) => {
+                return (
+                  <div key={index}>
+                    <h2>{item.label}</h2>
+                    <h2>{item.confidence}</h2>
+                  </div>
+                );
+              })}
+            </>
+          ) : (
+            ""
+          )} */}
     </div>
   );
 }
