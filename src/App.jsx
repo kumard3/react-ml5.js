@@ -10,7 +10,7 @@ import { Data } from "./data";
 
 export const HomePage = () => {
   return (
-    <div className="container mx-auto flex flex-wrap">
+    <div className="container mx-auto flex flex-wrap justify-center sm:justify-start ">
       {Data.map((n) => {
         return (
           <>
