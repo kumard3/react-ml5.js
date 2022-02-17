@@ -2,12 +2,13 @@ import { useEffect, useRef } from "react";
 import ml5 from "ml5";
 import p5 from "p5";
 
+let video;
+let mobilenet;
+let knn;
+
 export default function KNNClassification() {
   const app = useRef();
 
-  let video;
-  let mobilenet;
-  let knn;
   const sketch = (p) => {
     function modelReady() {
       console.log("Model is ready!!!");
@@ -51,29 +52,14 @@ export default function KNNClassification() {
   };
   useEffect(() => {
     let newp5 = new p5(sketch, app.current);
-
     return () => {
       newp5.remove();
     };
   }, []);
-  // console.log(knn)
+
   return (
     <div className="flex justify-center items-center">
       <div ref={app} />
-      {/* {modeldata?.length >= 2 ? (
-            <>
-              {modeldata?.map((item, index) => {
-                return (
-                  <div key={index}>
-                    <h2>{item.label}</h2>
-                    <h2>{item.confidence}</h2>
-                  </div>
-                );
-              })}
-            </>
-          ) : (
-            ""
-          )} */}
     </div>
   );
 }
