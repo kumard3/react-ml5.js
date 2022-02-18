@@ -24,11 +24,17 @@ export const Data = [
     link: "/knn",
     description: " KNN Classification using ML5",
   },
+  // {
+  //   title: "Teachable Machine",
+  //   link: "/teachablemachine",
+  //   description: "Teachable Machineusing ML5",
+  // },
   {
-    title: "Teachable Machine",
-    link: "/teachablemachine",
-    description: "Teachable Machineusing ML5",
+    title: "Pitch Detection",
+    link: "/pitchdetection",
+    description: "PitchDetection ML5",
   },
 ];
 
-export const model_url = "https://cdn.jsdelivr.net/gh/ml5js/ml5-data-and-models/models/pitch-detection/crepe/";
+export const model_url =
+  "https://cdn.jsdelivr.net/gh/ml5js/ml5-data-and-models/models/pitch-detection/crepe/";

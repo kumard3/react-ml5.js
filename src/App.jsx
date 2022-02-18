@@ -9,6 +9,7 @@ import Card from "./components/Card";
 import { Data } from "./data";
 import KNNClassification from "./pages/KNNClassification";
 import TeachableMachine from "./pages/TeachableMachine";
+import PitchDetection from "./pages/PitchDetection";
 
 export const HomePage = () => {
   return (
@@ -41,7 +42,8 @@ export default function App() {
           <Route path="/object" element={<ObjectDetection />} />
           <Route path="/feature" element={<FeatureExtractor />} />
           <Route path="/knn" element={<KNNClassification />} />
-          <Route path="/teachablemachine" element={<TeachableMachine />} />
+          {/* <Route path="/teachablemachine" element={<TeachableMachine />} /> */}
+          <Route path="/pitchdetection" element={<PitchDetection />} />
         </Routes>
       </>
     </div>

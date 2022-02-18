@@ -5,6 +5,7 @@ import p5 from "p5";
 let detector;
 let detections = [];
 let video;
+
 export default function ObjectDetection() {
   const app = useRef();
   const sketch = (p) => {
@@ -49,7 +50,6 @@ export default function ObjectDetection() {
   };
   useEffect(() => {
     let newp5 = new p5(sketch, app.current);
-
     return () => {
       newp5.remove();
     };
