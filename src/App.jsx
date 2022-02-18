@@ -8,6 +8,7 @@ import FeatureExtractor from "./pages/FeatureExtractor";
 import Card from "./components/Card";
 import { Data } from "./data";
 import KNNClassification from "./pages/KNNClassification";
+import TeachableMachine from "./pages/TeachableMachine";
 
 export const HomePage = () => {
   return (
@@ -40,6 +41,7 @@ export default function App() {
           <Route path="/object" element={<ObjectDetection />} />
           <Route path="/feature" element={<FeatureExtractor />} />
           <Route path="/knn" element={<KNNClassification />} />
+          <Route path="/teachablemachine" element={<TeachableMachine />} />
         </Routes>
       </>
     </div>
