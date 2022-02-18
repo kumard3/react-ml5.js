@@ -6,22 +6,32 @@ let video;
 let mobilenet;
 let knn;
 
-export default function KNNClassification() {
+export default function KNNold() {
   const [ready, setReady] = useState(false);
   const [labels, setLabels] = useState("Need tranning Data");
+
+
   const app = useRef();
 
   const sketch = (p) => {
     function modelReady() {
       console.log("Model is ready!!!");
     }
+
     function goClassify() {
       const logits = mobilenet.infer(video);
-      knn.classify(logits, gotResults);
+      knn.classify(logits, function (error, results) {
+        if (error) {
+          console.error(error);
+        } else {
+          setLabels(results.label);
+          goClassify()
+        }
+      });
     }
 
     p.setup = () => {
-      p.createCanvas(600, 500);
+      p.createCanvas(600, 480);
       video = p.createCapture(p.VIDEO);
       video.hide();
       p.background(0);
@@ -37,14 +47,6 @@ export default function KNNClassification() {
       }
     };
 
-    function gotResults(error, results) {
-      if (error) {
-        console.error(error);
-      } else {
-        setLabels(results.label);
-      }
-    }
-
     p.keyPressed = () => {
       const logits = mobilenet.infer(video);
       if (p.key === "l") {
@@ -57,11 +59,11 @@ export default function KNNClassification() {
     };
   };
   function modelSave() {
-    knn.save("model.json", function (err) {
+    knn.save('model.json', function (err) {
       if (err) {
         console.log(err);
       } else {
-        console.log("model saved");
+        console.log('model saved');
       }
     });
   }
@@ -76,12 +78,7 @@ export default function KNNClassification() {
     <div className="flex justify-center items-center flex-col">
       <div ref={app} />
       <h1 className="text-xl">{labels} </h1>
-      <button
-        onClick={modelSave}
-        className=" text-white text-3xl px-5 py-3 rounded-xl bg-slate-700 "
-      >
-        save ML5
-      </button>
+      <button onClick={modelSave} className=" text-white text-3xl px-5 py-3 rounded-xl bg-slate-700 ">save ML5</button>
     </div>
   );
 }
