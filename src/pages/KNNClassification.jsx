@@ -6,6 +6,9 @@ let video;
 let mobilenet;
 let knn;
 
+
+// Loading the saved model feature to be added 
+
 export default function KNNClassification() {
   const [ready, setReady] = useState(false);
   const [labels, setLabels] = useState("Need tranning Data");
