@@ -33,6 +33,10 @@ export const Data = [
     title: "Pitch Detection",
     link: "/pitchdetection",
     description: "PitchDetection ML5",
+  }, {
+    title: "Pose Net",
+    link: "/PoseNet",
+    description: "PoseNet ML5",
   },
 ];
 

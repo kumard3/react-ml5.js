@@ -1,7 +1,8 @@
 import React, { useEffect, useRef } from "react";
 import ml5 from "ml5";
-import p5 from "p5";
-import "p5/lib/addons/p5.sound";
+import p5 from  "p5";
+// import "p5/lib/addons/p5.sound.js";
+
 import { model_url } from "../data";
 
 export default function PitchDetection() {
