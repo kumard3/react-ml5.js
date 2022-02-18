@@ -9,6 +9,8 @@ let knn;
 export default function KNNClassification() {
   const [ready, setReady] = useState(false);
   const [labels, setLabels] = useState("Need tranning Data");
+
+
   const app = useRef();
 
   const sketch = (p) => {
@@ -27,8 +29,9 @@ export default function KNNClassification() {
         }
       });
     }
+
     p.setup = () => {
-      p.createCanvas(600, 500);
+      p.createCanvas(600, 480);
       video = p.createCapture(p.VIDEO);
       video.hide();
       p.background(0);
@@ -55,6 +58,15 @@ export default function KNNClassification() {
       }
     };
   };
+  function modelSave() {
+    knn.save('model.json', function (err) {
+      if (err) {
+        console.log(err);
+      } else {
+        console.log('model saved');
+      }
+    });
+  }
   useEffect(() => {
     let newp5 = new p5(sketch, app.current);
     return () => {
@@ -63,9 +75,10 @@ export default function KNNClassification() {
   }, []);
 
   return (
-    <div className="flex justify-center items-center">
+    <div className="flex justify-center items-center flex-col">
       <div ref={app} />
-      <h1>{labels} </h1>
+      <h1 className="text-xl">{labels} </h1>
+      <button onClick={modelSave} className=" text-white text-3xl px-5 py-3 rounded-xl bg-slate-700 ">save ML5</button>
     </div>
   );
 }
